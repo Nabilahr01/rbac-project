@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+</head>
+<body>
+
+<h2>Halaman Admin</h2>
+<div id="content"></div>
+<button onclick="kembali()">Kembali ke Dashboard</button>
+
+<script>
+const token = localStorage.getItem('token');
+
+if (!token) {
+  alert('Belum login');
+  window.location.href = 'login.html';
+}
+
+fetch('http://localhost:3000/admin', {
+  headers: {
+    Authorization: 'Bearer ' + token
+  }
+})
+.then(res => {
+  if (res.status === 403) {
+    alert('Akses ditolak (403)');
+    window.location.href = 'dashboard.html';
+    return;
+  }
+  return res.json();
+})
+.then(data => {
+  if (data) {
+    document.getElementById('content').innerText =
+      'Selamat datang Admin\n' + JSON.stringify(data);
+  }
+})
+.catch(err => {
+  alert('Gagal menghubungi server');
+  console.error(err);
+});
+
+function kembali() {
+  window.location.href = 'dashboard.html';
+}
+</script>
+
+</body>
+</html>
