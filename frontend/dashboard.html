@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+
+<h2>Dashboard</h2>
+
+<button onclick="keAdmin()">Ke Halaman Admin</button>
+<button onclick="logout()">Logout</button>
+
+<script>
+const token = localStorage.getItem('token');
+
+if (!token) {
+  alert('Anda belum login');
+  window.location.href = 'login.html';
+}
+
+function keAdmin() {
+  window.location.href = 'admin.html';
+}
+
+function logout() {
+  localStorage.removeItem('token');
+  alert('Logout berhasil');
+  window.location.href = 'login.html';
+}
+</script>
+
+</body>
+</html>
