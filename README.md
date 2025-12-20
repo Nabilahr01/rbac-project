@@ -14,6 +14,6 @@ cara menjalankan code
 - buka file login.html pakai vscode, setelah masuk, klik kanan pilih live server (kalau tdk ada, install extensionnya dulu di vscode)
 
 cara menyambungkan 500.000 data ke laragon:
-- buka file schema.sql (di folder database) di laragon, nama database schema_db (jika tidak muncul di list kiri, coding dari awal sesuai sql yg di folder database)
+- buka file schema.sql (di folder database) di laragon, nama database schema_db (jika tidak muncul di list kiri, coding dari awal sesuai sql yg di folder database, terus di save as ke folder database)
 - jalankan generateData.js (di backend/seed) di vscode (tombol segitiga di kanan atas)
 - otomatis masuk ke laragon
